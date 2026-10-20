@@ -1,6 +1,7 @@
 # Load System Overview function
 . "$PSScriptRoot/Modules/Windows/SystemInfo/SystemOverview.ps1"
 . "$PSScriptRoot/Modules/Windows/SystemInfo/CPUInfo.ps1"
+. "$PSScriptRoot/Modules/Windows/SystemInfo/RAMInfo.ps1"
 
 while($true){
     Write-Host "================================" -ForegroundColor Green
@@ -10,6 +11,7 @@ while($true){
     # Menu
     Write-Host "1. System Overview" -ForegroundColor Green
     Write-Host "2. CPU Information" -ForegroundColor Green
+    Write-Host "3. RAM Information" -ForegroundColor Green
     Write-Host "0. Exit" -ForegroundColor Red
 
     # Receive user input
@@ -27,7 +29,13 @@ while($true){
         "2"{
             Clear-Host
             GetCPUInfo | Format-List
-            Read-Host "Press enter to return"
+            Read-Host "Press Enter to return"
+        }
+
+        "3"{
+            Clear-Host
+            GetRAMInfo
+            Read-Host "Press Enter to return"
         }
 
         "0"{
