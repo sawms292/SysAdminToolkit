@@ -10,6 +10,7 @@ A PowerShell toolkit for viewing Windows system and hardware information.
 | 2 | CPU Information | Displays processor specifications. |
 | 3 | RAM Information | Displays installed memory details. |
 |4| Storage Information | Displays disk details, health status, and storage usage for each drive. |
+| 5 | BIOS Information | Displays BIOS version, release date, computer model, and motherboard details. |
 | 0 | Exit | Closes the toolkit. |
 
 ## Requirements
@@ -44,7 +45,7 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File .\StartToolkit.ps1
 
 This applies only to the new PowerShell process. It does not override organization-enforced security policies.
 
-Select **1**, **2**, **3**, or **4** to view system information, or **0** to exit. Follow the on-screen prompt to return to the menu.
+Select **1–5** to view system and hardware information, or **0** to exit. Follow the on-screen prompt to return to the menu.
 
 ## Project Structure
 
@@ -52,12 +53,14 @@ Select **1**, **2**, **3**, or **4** to view system information, or **0** to exi
 SysAdminToolkit/
 ├── StartToolkit.ps1
 └── Modules/
-    └── Windows/
-        └── SystemInfo/
-            ├── SystemOverview.ps1
-            ├── CPUInfo.ps1
-            ├── RAMInfo.ps1
-            └── StorageInfo.ps1
+|    └── Windows/
+|        └── SystemInfo/
+|            ├── SystemOverview.ps1
+|            ├── CPUInfo.ps1
+|            ├── RAMInfo.ps1
+|            ├── StorageInfo.ps1
+|            └── BIOSInfo.ps1
+└── README.md
 ```
 
 The menu is currently handled by `StartToolkit.ps1`. A separate `MainMenu.ps1` is not used in this version.

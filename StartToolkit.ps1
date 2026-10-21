@@ -3,6 +3,7 @@
 . "$PSScriptRoot/Modules/Windows/SystemInfo/CPUInfo.ps1"
 . "$PSScriptRoot/Modules/Windows/SystemInfo/RAMInfo.ps1"
 . "$PSScriptRoot/Modules/Windows/SystemInfo/StorageInfo.ps1"
+. "$PSScriptRoot/Modules/Windows/SystemInfo/BIOSInfo.ps1"
 
 while($true){
     Write-Host "================================" -ForegroundColor Green
@@ -14,6 +15,7 @@ while($true){
     Write-Host "[2] CPU Information" -ForegroundColor Green
     Write-Host "[3] RAM Information" -ForegroundColor Green
     Write-Host "[4] Storage Information" -ForegroundColor Green
+    Write-Host "[5] BIOS Information" -ForegroundColor Green
     Write-Host "[0] Exit" -ForegroundColor Red
 
     # Receive user input
@@ -43,6 +45,12 @@ while($true){
         "4"{
             Clear-Host
             GetStorageInfo
+            Read-Host "Press Enter to return"
+        }
+
+        "5"{
+            Clear-Host
+            GetBIOSInfo | Format-List
             Read-Host "Press Enter to return"
         }
 
