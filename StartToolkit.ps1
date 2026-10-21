@@ -26,13 +26,13 @@ while($true){
     switch($choice){
         "1"{
             Clear-Host
-            GetSystemOverview | Format-List
+            GetSystemOverview
             Read-Host "Press Enter to return"
         }
 
         "2"{
             Clear-Host
-            GetCPUInfo | Format-List
+            GetCPUInfo
             Read-Host "Press Enter to return"
         }
 

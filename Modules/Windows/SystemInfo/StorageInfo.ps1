@@ -2,6 +2,7 @@
 function GetStorageInfo {
     # Retrieve disk information
     $disks = Get-Disk
+    Write-Host "===== STORAGE INFORMATION =====`n" -ForegroundColor Green
 
     foreach ($disk in $disks) {
         Write-Host "========== DISK $($disk.Number) ==========" -ForegroundColor Green
@@ -87,4 +88,5 @@ function GetStorageInfo {
         }
         Write-Host "========== END OF DISK $($disk.Number) ==========`n" -ForegroundColor Green
     }
+    Write-Host "===== END OF STORAGE INFORMATION =====" -ForegroundColor Green
 }

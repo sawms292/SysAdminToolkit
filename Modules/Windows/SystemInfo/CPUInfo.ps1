@@ -15,6 +15,8 @@ function GetCPUInfo{
         $virtualization = "Disabled"
     }
 
+    Write-Host "========== CPU Information ==========" -ForegroundColor Green
+
     # CPU information
     [PSCustomObject]@{
         # Cpu model
@@ -34,6 +36,7 @@ function GetCPUInfo{
         # Approximate CPU usage
         CPUUsagePercent     = "$($cpu.LoadPercentage)%"
 
-    }
+    } | Format-List |Out-String | ForEach-Object {Write-Host $_.Trim() }
+    Write-Host "========== END OF CPU Information ==========" -ForegroundColor Green
 
 }

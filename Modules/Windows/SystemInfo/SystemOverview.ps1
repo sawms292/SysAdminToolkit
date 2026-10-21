@@ -9,6 +9,7 @@ function GetSystemOverview {
     $ram = (Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum).Sum
     # (Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property Capacity -Sum).Sum / 1GB
 
+    Write-Host "========== SYSTEM Information ==========" -ForegroundColor Green
         
         [PSCustomObject]@{
         # Windows computer name
@@ -31,7 +32,9 @@ function GetSystemOverview {
         SystemRAM = "$([math]::Round($computer.TotalPhysicalMemory / 1GB, 2)) GB"
         # Last startup
         LastBootTime = $os.LastBootUpTime
-    }
+
+    } | Format-List |Out-String | ForEach-Object {Write-Host $_.Trim() }
+    Write-Host "========== END OF SYSTEM Information ==========" -ForegroundColor Green
 
 
 }

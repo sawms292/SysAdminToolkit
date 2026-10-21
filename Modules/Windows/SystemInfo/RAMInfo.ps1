@@ -53,7 +53,7 @@ function GetRAMInfo{
             default { $formFactor = "Unknown" }
         }
 
-        Write-Host "`n===== RAM MODULE $moduleNumber =====" -ForegroundColor Cyan
+        Write-Host "`n----- RAM MODULE $moduleNumber -----" -ForegroundColor Yellow
 
         [PSCustomObject]@{
             # Install in motherboard which slot
@@ -78,4 +78,5 @@ function GetRAMInfo{
 
         $moduleNumber++
     }
+    Write-Host "===== END OF RAM INFORMATION =====" -ForegroundColor Green
 } 
